@@ -1,7 +1,88 @@
-.App {
-  text-align: center;
+body {
+  background-color: antiquewhite;
 }
 
+.App {
+  text-align: center;
+  margin: 1rem 2rem;
+  /* max-width: 900px; */
+}
+
+.card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: .25rem;
+  box-shadow: 0 0 5px 2px lightgray;
+  background-color: white;
+  transform-style: preserve-3d;
+  height: 150px;
+  transition: 300ms;
+  cursor: pointer;
+  transform: perspective(1000px)rotateY(var(--rotate-y, 0));
+}
+
+.card:hover {
+  box-shadow: 0 0 5px 2px darkgray;
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+}
+
+.card .front {
+  left: 0;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +116,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
