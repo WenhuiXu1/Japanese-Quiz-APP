@@ -1,16 +1,38 @@
 import './App.css';
 import React, { useState } from 'react';
 import FlashcardList from './component/FlashcardList';
+import QuestionCardList from './component/QuestionCardList';
 
 function App() {
   const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARD);
+  const [score, setScore] = useState(0);
+  const [wrongAnswers, setWrongAnswers] = useState(0);
+
+  const maxWrongAnswers = 3;
+  const hasFailed = wrongAnswers > maxWrongAnswers;
+
+
+  const passingPercentage = 70;
+  const percentage = (score / flashcards.length) * 100;
+  const hasPassed = percentage >= passingPercentage;
+  
   return (
     <div className="App">
       <h1>Japanese Quiz App</h1>
       <FlashcardList flashcards = {flashcards} />
+      <p>Score: {score}/10</p>
+      <QuestionCardList flashcards = {flashcards} score={score} setScore={setScore} wrongAnswers = {wrongAnswers} setWrongAnswers = {setWrongAnswers}/>
+      {hasFailed ? (
+        <p>
+          Sorry, you have failed the test.
+        </p>
+      ) : null}
+      {hasPassed ? <p>Congratulations! You have passed the test.</p> : null}
     </div>
   );
 }
+
+
 
 const SAMPLE_FLASHCARD = [
   {
@@ -22,7 +44,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 2,
@@ -33,7 +55,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 3,
@@ -44,7 +66,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 4,
@@ -55,7 +77,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 5,
@@ -66,7 +88,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 6,
@@ -77,7 +99,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 7,
@@ -88,7 +110,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 8,
@@ -99,7 +121,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 9,
@@ -110,7 +132,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   },
   {
     id: 10,
@@ -121,7 +143,7 @@ const SAMPLE_FLASHCARD = [
       'Answer 1',
       'Answer 2',
       'Answer 3'
-    ]
+    ].sort(()=> Math.random() - .5)
   }
 ]
 
