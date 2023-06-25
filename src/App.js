@@ -26,7 +26,7 @@ export default function App() {
   function getQustionCards() {
     fetch('/questionCards')
       .then(res => res.json())
-      .then(res => setQustionCards(res.questionCards))
+      .then(res => setQustionCards(res))
   }
   
   useEffect(getFlashCards, [])
