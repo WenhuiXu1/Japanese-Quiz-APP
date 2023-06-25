@@ -18,7 +18,7 @@ export default function QuestionCard({ questionCard, score, setScore, wrongAnswe
       <div className="front">
         {questionCard.question}
         <div className="flashcard-options">
-          {questionCard.options.sort(()=> Math.random() - .5).map((option, index) => (
+          {questionCard.options.map((option, index) => (
             <label key={index} className="flashcard-option">
               <input
                 type="radio"
