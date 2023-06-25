@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Home from './component/Home';
 import FlashcardList from './component/FlashcardList';
 import QuestionCardList from './component/QuestionCardList';
 import { Routes, Route, Link } from 'react-router-dom'
@@ -38,8 +39,35 @@ export default function App() {
   return (
     <div className="App">
       <h1>Japanese Quiz App</h1>
-      <FlashcardList flashcards = {flashcards} />
-      <QuestionCardList questionCards = {questionCards}/>
+      <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/flashcards'>Flashcards</Link>
+        <Link to='/quiz'>Quiz</Link>
+      </nav>
+
+      <Routes>
+      <Route 
+          path='/' 
+          element={
+            <Home name='Friend' />
+          }
+        />
+        <Route 
+          path='/flashcards' 
+          element={
+            <FlashcardList flashcards = {flashcards} />
+          }
+        />
+        <Route 
+          path='/quiz' 
+          element={
+            <QuestionCardList questionCards = {questionCards}/>
+          }
+        />
+      </Routes>
+      
+      
+      
     </div>
   );
 }
