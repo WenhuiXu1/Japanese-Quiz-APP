@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import NavBar from "./component/Layout/NavBar";
-import Footer from './component/Layout/Footer';
+import Footer from "./component/Layout/Footer";
 import HomePage from './component/Pages/HomePage';
 import FlashcardList from './component/FlashcardList';
 import QuestionCardList from './component/QuestionCardList';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom';
 
 export default function App() {
 

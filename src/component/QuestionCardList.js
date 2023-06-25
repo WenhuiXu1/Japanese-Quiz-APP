@@ -18,13 +18,13 @@ export default function QuestionCardList({ questionCards }) {
   return (
     <>
     <p>Score: {score}/10</p>
+    {hasFailed ? (<p>Sorry, you have failed the test.</p>) : null}
+    {hasPassed ? <p>Congrats! You have passed the test.</p> : null}
     <div className="card-grid">
       {questionCards.map((questionCard) => {
         return <QuestionCard questionCard={questionCard} key={questionCard.id} score={score} setScore={setScore} wrongAnswers={wrongAnswers} setWrongAnswers = {setWrongAnswers}/>;
       })}
     </div>
-    {hasFailed ? (<p>Sorry, you have failed the test.</p>) : null}
-    {hasPassed ? <p>Congrats! You have passed the test.</p> : null}
     </>
   );
 }

@@ -14,7 +14,7 @@ export default function QuestionCard({ questionCard, score, setScore, wrongAnswe
   };
 
   return (
-    <div className="card">
+    <div className="question-card">
       <div className="front">
         {questionCard.question}
         <div className="flashcard-options">

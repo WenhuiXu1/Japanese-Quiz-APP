@@ -43,7 +43,7 @@ const NavBar = () => {
 
 	return (
 		<ThemeProvider theme={theme}>
-		<AppBar position='static'>
+		<AppBar position='static' style={{ backgroundColor: "darkcyan"}}>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
 					<Typography
@@ -61,7 +61,7 @@ const NavBar = () => {
 							textDecoration: "none",
 						}}
 					>
-						Japanese Quiz App
+						Quizkana
 					</Typography>
 
 					<Box
