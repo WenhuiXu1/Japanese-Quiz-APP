@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-export default function QuestionCard({ flashcard, score, setScore, wrongAnswers, setWrongAnswers }) {
+export default function QuestionCard({ questionCard, score, setScore, wrongAnswers, setWrongAnswers }) {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleOptionSelect = (e) => {
     setSelectedOption(e.target.value);
-    const isCorrect = e.target.value === flashcard.answer;
+    const isCorrect = e.target.value === questionCard.answer;
     if (isCorrect) {
       setScore(score + 1);
     } else {
@@ -16,10 +16,10 @@ export default function QuestionCard({ flashcard, score, setScore, wrongAnswers,
   return (
     <div className="card">
       <div className="front">
-        {flashcard.question}
+        {questionCard.question}
         <div className="flashcard-options">
-          {flashcard.options.map((option, index) => (
-            <label key={index}>
+          {questionCard.options.map((option, index) => (
+            <label key={index} className="flashcard-option">
               <input
                 type="radio"
                 value={option}
@@ -31,7 +31,6 @@ export default function QuestionCard({ flashcard, score, setScore, wrongAnswers,
           ))}
         </div>
       </div>
-      <div className="back">{flashcard.answer}</div>
     </div>
   );
 }
