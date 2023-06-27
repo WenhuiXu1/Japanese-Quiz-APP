@@ -16,7 +16,8 @@ import PositionedMenuInsideBurgerIcon from "./PositionedMenuInsideBurgerIcon";
 
 
 const pages = [
-	{ name: 'Home', path: '/' }
+	{ name: 'Home', path: '/' }, 
+  { name: 'Quizzes', path: '/quizzes'}
   ];  
 
 const theme = createTheme({
@@ -91,11 +92,12 @@ const NavBar = () => {
                   { name: 'All flashcards', path: '/flash-cards' },
                   { name: 'Hiragana', path: '/flash-cards/hiragana' },
                   { name: 'Katakana', path: '/flash-cards/katakana' },
-                  { name: 'Combination', path: '/flash-cards/combinations' },
+                  // { name: 'SoundChanges', path: '/flash-cards/sound-changes' },
+                  // { name: 'Combination', path: '/flash-cards/combinations' },
                 ]}
               />
 
-              <PositionedMenu
+              {/* <PositionedMenu
                 label="Quizzes" 
                 options={[
                   { name: 'All-levels', path: '/quizzes' },
@@ -103,7 +105,7 @@ const NavBar = () => {
                   { name: 'Mid-level', path: '/quizzes/mid-level' },
                   { name: 'Advanced', path: '/quizzes/advanced' },
                 ]} 
-              />
+              /> */}
             </Box>
 
             <Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
@@ -135,14 +137,16 @@ const NavBar = () => {
                   display: { xs: "block", sm: "none" },
                 }}
               >
-                  <MenuItem
-                    key="Home"
-                    onClick={handleCloseNavMenu}
-                    component={Link}
-                    to='/'
-                  >
-                    <Typography textAlign='center'>Home</Typography>
-                  </MenuItem>
+                {pages.map((page) => (
+									<MenuItem
+										key={page.name}
+										onClick={handleCloseNavMenu}
+										component={Link}
+										to={page.path}
+									>
+										<Typography textAlign='center'>{page.name}</Typography>
+									</MenuItem>
+								))}
         
                 {/* Flashcards Menu */}
                 <PositionedMenuInsideBurgerIcon
@@ -151,12 +155,13 @@ const NavBar = () => {
                     { name: 'All flashcards', path: '/flash-cards' },
                     { name: 'Hiragana', path: '/flash-cards/hiragana' },
                     { name: 'Katakana', path: '/flash-cards/katakana' },
-                    { name: 'Combination', path: '/flash-cards/combinations' },
+                    // { name: 'SoundChanges', path: '/flash-cards/sound-changes' },
+                    // { name: 'Combination', path: '/flash-cards/combinations' },
                   ]}
                 />
 
                 {/* Quizzes Menu */}
-                <PositionedMenuInsideBurgerIcon
+                {/* <PositionedMenuInsideBurgerIcon
                   label="Quizzes" 
                   options={[
                     { name: 'All-levels', path: '/quizzes' },
@@ -164,7 +169,7 @@ const NavBar = () => {
                     { name: 'Mid-level', path: '/quizzes/mid-level' },
                     { name: 'Advanced', path: '/quizzes/advanced' },
                   ]} 
-                />
+                /> */}
               </Menu>
             </Box>
           </Toolbar>
