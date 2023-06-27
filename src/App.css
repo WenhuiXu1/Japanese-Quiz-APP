@@ -5,15 +5,17 @@ body {
 }
 
 .App {
-  /* text-align: center; */
-  margin: 1rem 2rem;
+  /* align-items: center; */
+  /* margin: 1rem 2rem; */
 }
 
 .card-grid {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .card {
@@ -28,7 +30,7 @@ body {
   box-shadow: 0 0 5px 2px lightgray;
   background-color: #f5f5f5;
   transform-style: preserve-3d;
-  height: 250px;
+  height: 150px;
   transition: 300ms;
   cursor: pointer;
   transform: perspective(1000px)rotateY(var(--rotate-y, 0));
@@ -67,6 +69,14 @@ body {
   cursor: pointer;
 }
 
+.question-card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem;
+}
+
 .flashcard-options {
   margin-top: .5rem;
 }
@@ -77,65 +87,56 @@ body {
   display: block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.confirm-button {
+  background-color: darkcyan;
   color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: .8rem;
+  font-weight: bold;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.submit-button {
+  background-color: darkcyan;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2rem;
+  margin-bottom: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.confirm-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.score-results {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Dosis", sans-serif;
+}
+
+.pass-message {
+  font-size: 24px;
+  color: green;
+  text-align: center;
+  font-family: "Dosis", sans-serif;
+}
+
+.fail-message {
+  font-size: 24px;
+  color: green;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}

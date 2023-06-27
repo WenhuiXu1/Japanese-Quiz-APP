@@ -44,8 +44,8 @@ export default function App() {
 
       <Routes>
         <Route path='/' element={<HomePage />}/>
-        <Route path='/flashcards' element={<FlashcardList flashcards = {flashcards} />}/>
-        <Route path='/quiz' element={<QuestionCardList questionCards = {questionCards}/>}/>
+        <Route path='/flash-cards' element={<FlashcardList flashcards = {flashcards} />}/>
+        <Route path='/quizzes' element={<QuestionCardList questionCards = {questionCards}/>}/>
       </Routes>
       <Footer />
     </div>

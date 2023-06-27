@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 
-export default function QuestionCard({ questionCard, score, setScore, wrongAnswers, setWrongAnswers }) {
+export default function QuestionCard({ questionCard, handleScoreUpdate }) {
   const [selectedOption, setSelectedOption] = useState('');
+  const [answersSubmitted, setAnswersSubmitted] = useState(false);
 
   const handleOptionSelect = (e) => {
-    setSelectedOption(e.target.value);
-    const isCorrect = e.target.value === questionCard.answer;
-    if (isCorrect) {
-      setScore(score + 1);
-    } else {
-        setWrongAnswers(wrongAnswers + 1);
+    if (!answersSubmitted) {
+      setSelectedOption(e.target.value);
+    }
+  };
+
+  const handleConfirm = () => {
+    if (!answersSubmitted && selectedOption !== '') {
+      const isCorrect = selectedOption === questionCard.answer;
+      handleScoreUpdate(isCorrect);
+      setAnswersSubmitted(true);
     }
   };
 
@@ -25,12 +30,20 @@ export default function QuestionCard({ questionCard, score, setScore, wrongAnswe
                 value={option}
                 checked={selectedOption === option}
                 onChange={handleOptionSelect}
+                disabled={answersSubmitted}
               />
               {option}
             </label>
           ))}
         </div>
       </div>
+      <button
+          className={`confirm-button ${answersSubmitted ? 'disabled' : ''}`}
+          onClick={handleConfirm}
+          disabled={answersSubmitted}
+        >
+          Confirm
+        </button>
     </div>
   );
 }

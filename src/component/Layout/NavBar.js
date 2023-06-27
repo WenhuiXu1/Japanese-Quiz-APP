@@ -11,12 +11,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import PositionedMenu from './PositionedMenu';
+
 
 const pages = [
-	{ name: "Home", path: "/" },
-	{ name: "Flashcards", path: "/flashcards" },
-	{ name: "Quiz", path: "/quiz" }
-];
+	{ name: 'Home', path: '/' }
+  ];  
 
 const theme = createTheme({
 	breakpoints: {
@@ -82,6 +82,25 @@ const NavBar = () => {
 									{page.name}
 								</Button>
 							))}
+							<PositionedMenu
+								label="Flashcards"
+								options={[
+									{ name: 'All flashcards', path: '/flash-cards' },
+									{ name: 'Hiragana', path: '/flash-cards/hiragana' },
+									{ name: 'Katakana', path: '/flash-cards/katakana' },
+									{ name: 'Combination', path: '/flash-cards/combinations' },
+								]}
+							/>
+
+							<PositionedMenu
+								label="Quizzes" 
+								options={[
+								{ name: 'All-levels', path: '/quizzes' },
+								{ name: 'Beginner', path: '/quizzes/beginner' },
+								{ name: 'Mid-level', path: '/quizzes/mid-level' },
+								{ name: 'Advanced', path: '/quizzes/advanced' },
+								]} 
+							/>
 						</Box>
 
 						<Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
