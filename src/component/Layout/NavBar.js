@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import PositionedMenu from './PositionedMenu';
+import PositionedMenuInsideBurgerIcon from "./PositionedMenuInsideBurgerIcon";
 
 
 const pages = [
@@ -30,125 +31,147 @@ const theme = createTheme({
 	},
 });
 
+// ...
+
 const NavBar = () => {
-	const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-	const handleOpenNavMenu = (event) => {
-		setAnchorElNav(event.currentTarget);
-	};
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-	return (
-		<ThemeProvider theme={theme}>
-		<AppBar position='static' style={{ backgroundColor: "darkcyan"}}>
-			<Container maxWidth='xl'>
-				<Toolbar disableGutters>
-					<Typography
-						variant='h6'
-						noWrap
-						component='a'
-						href='/'
-						sx={{
-							flexGrow: 1,
-							display: { xs: "flex", lg: "flex" },
-							fontFamily: "monospace",
-							fontWeight: 700,
-							letterSpacing: ".3rem",
-							color: "inherit",
-							textDecoration: "none",
-						}}
-					>
-						Quizkana
-					</Typography>
+  return (
+    <ThemeProvider theme={theme}>
+      <AppBar position='static' style={{ backgroundColor: "darkcyan"}}>
+        <Container maxWidth='xl'>
+          <Toolbar disableGutters>
+            <Typography
+              variant='h6'
+              noWrap
+              component='a'
+              href='/'
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", lg: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              Quizkana
+            </Typography>
 
-					<Box
-							sx={{
-								flexGrow: 1,
-								display: { xs: "none", sm: "flex" },
-								justifyContent: "flex-end",
-							}}
-						>
-							{pages.map((page) => (
-								<Button
-									key={page.name}
-									onClick={handleCloseNavMenu}
-									sx={{ my: 2, color: "white", display: "block" }}
-									component={Link}
-									to={page.path}
-								>
-									{page.name}
-								</Button>
-							))}
-							<PositionedMenu
-								label="Flashcards"
-								options={[
-									{ name: 'All flashcards', path: '/flash-cards' },
-									{ name: 'Hiragana', path: '/flash-cards/hiragana' },
-									{ name: 'Katakana', path: '/flash-cards/katakana' },
-									{ name: 'Combination', path: '/flash-cards/combinations' },
-								]}
-							/>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "flex" },
+                justifyContent: "flex-end",
+              }}
+            >
+              {pages.map((page) => (
+                <Button
+                  key={page.name}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                  component={Link}
+                  to={page.path}
+                >
+                  {page.name}
+                </Button>
+              ))}
+              <PositionedMenu
+                label="Flashcards"
+                options={[
+                  { name: 'All flashcards', path: '/flash-cards' },
+                  { name: 'Hiragana', path: '/flash-cards/hiragana' },
+                  { name: 'Katakana', path: '/flash-cards/katakana' },
+                  { name: 'Combination', path: '/flash-cards/combinations' },
+                ]}
+              />
 
-							<PositionedMenu
-								label="Quizzes" 
-								options={[
-								{ name: 'All-levels', path: '/quizzes' },
-								{ name: 'Beginner', path: '/quizzes/beginner' },
-								{ name: 'Mid-level', path: '/quizzes/mid-level' },
-								{ name: 'Advanced', path: '/quizzes/advanced' },
-								]} 
-							/>
-						</Box>
+              <PositionedMenu
+                label="Quizzes" 
+                options={[
+                  { name: 'All-levels', path: '/quizzes' },
+                  { name: 'Beginner', path: '/quizzes/beginner' },
+                  { name: 'Mid-level', path: '/quizzes/mid-level' },
+                  { name: 'Advanced', path: '/quizzes/advanced' },
+                ]} 
+              />
+            </Box>
 
-						<Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
-							<IconButton
-								size='large'
-								aria-label='account of current user'
-								aria-controls='menu-appbar'
-								aria-haspopup='true'
-								onClick={handleOpenNavMenu}
-								color='inherit'
-							>
-								<MenuIcon />
-							</IconButton>
-							<Menu
-								id='menu-appbar'
-								anchorEl={anchorElNav}
-								anchorOrigin={{
-									vertical: "bottom",
-									horizontal: "right",
-								}}
-								keepMounted
-								transformOrigin={{
-									vertical: "top",
-									horizontal: "right",
-								}}
-								open={Boolean(anchorElNav)}
-								onClose={handleCloseNavMenu}
-								sx={{
-									display: { xs: "block", sm: "none" },
-								}}
-							>
-								{pages.map((page) => (
-									<MenuItem
-										key={page.name}
-										onClick={handleCloseNavMenu}
-										component={Link}
-										to={page.path}
-									>
-										<Typography textAlign='center'>{page.name}</Typography>
-									</MenuItem>
-								))}
-							</Menu>
-						</Box>
-				</Toolbar>
-			</Container>
-		</AppBar>
-	</ThemeProvider>
-	);
+            <Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
+              <IconButton
+                size='large'
+                aria-label='account of current user'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
+                onClick={handleOpenNavMenu}
+                color='inherit'
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id='menu-appbar'
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", sm: "none" },
+                }}
+              >
+                  <MenuItem
+                    key="Home"
+                    onClick={handleCloseNavMenu}
+                    component={Link}
+                    to='/'
+                  >
+                    <Typography textAlign='center'>Home</Typography>
+                  </MenuItem>
+        
+                {/* Flashcards Menu */}
+                <PositionedMenuInsideBurgerIcon
+                  label="Flashcards"
+                  options={[
+                    { name: 'All flashcards', path: '/flash-cards' },
+                    { name: 'Hiragana', path: '/flash-cards/hiragana' },
+                    { name: 'Katakana', path: '/flash-cards/katakana' },
+                    { name: 'Combination', path: '/flash-cards/combinations' },
+                  ]}
+                />
+
+                {/* Quizzes Menu */}
+                <PositionedMenuInsideBurgerIcon
+                  label="Quizzes" 
+                  options={[
+                    { name: 'All-levels', path: '/quizzes' },
+                    { name: 'Beginner', path: '/quizzes/beginner' },
+                    { name: 'Mid-level', path: '/quizzes/mid-level' },
+                    { name: 'Advanced', path: '/quizzes/advanced' },
+                  ]} 
+                />
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
+  );
 };
 
 export default NavBar;
