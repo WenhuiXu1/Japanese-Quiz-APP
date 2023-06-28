@@ -13,6 +13,7 @@ export default function App() {
   const [questionCards, setQustionCards] = useState([]);
   const [hiraganaCards, setHiraganaCards] = useState([]);
   const [katakana, setKatakana] = useState([]);
+  const [soundChange, setSoundChange] = useState([]);
 
   function getFlashCards() {
     fetch('/flashcards')
@@ -32,6 +33,14 @@ export default function App() {
       .then(res => {
         console.log(res)
         return setKatakana(res)})
+  }
+
+  function getSoundChangeCards() {
+    fetch('/flashcards/sound-change')
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        return setSoundChange(res)})
   }
 
   // function updateFlashCards() {
@@ -54,6 +63,7 @@ export default function App() {
   // useEffect(updateQustionCards, [questionCards])
   useEffect(getHiraganaCards, [])
   useEffect(getKatakanaCards, [])
+  useEffect(getSoundChangeCards, [])
   
   return (
     <div className="App">
@@ -64,6 +74,7 @@ export default function App() {
         <Route path='/flash-cards' element={<FlashcardList flashcards = {flashcards} />}/>
         <Route path='/flash-cards/hiragana' element={<FlashcardList flashcards = {hiraganaCards} />}/>
         <Route path='/flash-cards/katakana' element={<FlashcardList flashcards = {katakana} />}/>
+        <Route path='/flash-cards/sound-change' element={<FlashcardList flashcards = {soundChange} />}/>
         <Route path='/quizzes' element={<QuestionCardList questionCards = {questionCards}/>}/>
       </Routes>
       <Footer />

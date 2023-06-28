@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import QuestionCard from './QuestionCard';
+import DefaultLayout from "./Layout/DefaultLayout.js"
 
 export default function QuestionCardList({ questionCards }) {
   const [score, setScore] = useState(0);
@@ -46,7 +47,7 @@ export default function QuestionCardList({ questionCards }) {
         </>
       )}
       <br />
-      <div className="question-card-grid">
+      <div className="question-card-grid" style = {{ minHeight: '75vh'}}>
         {questionCards.map((questionCard) => (
           <QuestionCard
             questionCard={questionCard}

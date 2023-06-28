@@ -10,7 +10,7 @@ const DefaultLayout = ({ children }) => {
 					flexDirection: "column",
 					alignItems: "center",
 					justifyContent: "center",
-					minHeight: "75vh", // adjust as needed
+					minHeight: "88vh", // adjust as needed
 				}}
 			>
 				{children}

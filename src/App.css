@@ -1,12 +1,18 @@
-html {
+html,
+body {
   height: 100%;
 }
 
 body {
+  /* background-color: rgb(115, 114, 112); */
   background-image: URL("https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1192&q=80");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
 }
+
+/* .home-page {
+  
+} */
 
 .App {
   /* align-items: center; */
@@ -91,6 +97,8 @@ body {
   display: block;
 }
 
+
+
 .confirm-button {
   background-color: darkcyan;
   color: white;
@@ -103,6 +111,18 @@ body {
   bottom: 1rem;
   right: 1rem;
   cursor: pointer;
+}
+
+.load-more-btn {
+  background-color: darkcyan;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2rem;
 }
 
 .submit-button {

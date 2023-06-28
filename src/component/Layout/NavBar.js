@@ -89,9 +89,10 @@ const NavBar = () => {
               <PositionedMenu
                 label="Flashcards"
                 options={[
-                  { name: 'All flashcards', path: '/flash-cards' },
                   { name: 'Hiragana', path: '/flash-cards/hiragana' },
                   { name: 'Katakana', path: '/flash-cards/katakana' },
+                  { name: 'Sound Change', path: '/flash-cards/sound-change' },
+                  { name: 'All flashcards', path: '/flash-cards' },
                   // { name: 'SoundChanges', path: '/flash-cards/sound-changes' },
                   // { name: 'Combination', path: '/flash-cards/combinations' },
                 ]}
@@ -152,9 +153,10 @@ const NavBar = () => {
                 <PositionedMenuInsideBurgerIcon
                   label="Flashcards"
                   options={[
-                    { name: 'All flashcards', path: '/flash-cards' },
                     { name: 'Hiragana', path: '/flash-cards/hiragana' },
+                    { name: 'Sound Change', path: '/flash-cards/sound-change' },
                     { name: 'Katakana', path: '/flash-cards/katakana' },
+                    { name: 'All flashcards', path: '/flash-cards' },
                     // { name: 'SoundChanges', path: '/flash-cards/sound-changes' },
                     // { name: 'Combination', path: '/flash-cards/combinations' },
                   ]}
